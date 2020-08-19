@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sumin.portfolio.dao.user">
+
+	<!-- 로그인 시도 -->
+	<select id="login" parameterType="com.sumin.portfolio.vo.user.UserVo" resultType="com.sumin.portfolio.vo.login.LoginVo">
+		SELECT
+			email AS email,
+			username AS username,
+			password AS password
+		FROM
+			users
+		WHERE
+			username = #{username}
+	</select>
+	
+	<!-- 유저의 권한 리스트 -->
+	<select id="authority" parameterType="com.sumin.portfolio.vo.user.UserVo" resultType="com.sumin.portfolio.vo.user.AuthorityVo">
+		SELECT
+			authority
+		FROM
+			authorities
+		WHERE
+			username = #{username}
+	</select>
+	
+	<!-- 유저의 그룹 리스트 -->
+	<select id="groups" parameterType="com.sumin.portfolio.vo.user.UserVo" resultType="com.sumin.portfolio.vo.user.GroupsVo">
+		SELECT
+			gr.id AS id,
+			gr.group_name AS groupName
+		FROM
+			`groups` AS gr
+		LEFT JOIN
+			group_members AS gm
+		ON
+			gr.id = gm.group_id
+		WHERE
+			gm.username = #{username}
+	</select>
+	
+	<!-- 유저의 리소스 -->
+	<select id="resource" parameterType="com.sumin.portfolio.vo.user.UserVo" resultType="com.sumin.portfolio.vo.user.ResourceVo">
+		SELECT
+			ga.idx,
+			ga.authority
+		FROM
+			group_authorities AS ga 
+			LEFT JOIN group_members AS gm
+			ON ga.group_id = gm.group_id
+		WHERE
+			gm.username = #{username}
+	</select>
+	
+</mapper>

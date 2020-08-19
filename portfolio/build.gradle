@@ -1,0 +1,93 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.6.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+war {
+	enabled = true
+	baseName = "portfolio"
+}
+
+group = 'com.sumin.portfolio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+	implementation 'org.apache.tomcat:tomcat-jdbc'
+	implementation 'org.slf4j:slf4j-api:1.7.26'
+	implementation 'org.slf4j:jcl-over-slf4j:1.7.26'
+	implementation 'ch.qos.logback:logback-classic:1.2.3'
+	implementation 'org.aspectj:aspectjrt:1.9.2'
+	
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+	implementation 'commons-io:commons-io:2.6'
+	implementation 'org.apache.tika:tika-core:1.23'
+	
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // 이거 안하면 jsp 소스 코드가 그대로 출력됨.
+	implementation 'org.apache.httpcomponents:httpclient:4.5.8'
+	
+	implementation 'com.google.code.gson:gson:2.8.5'
+	implementation 'net.minidev:json-smart:2.3'
+	implementation 'javax.inject:javax.inject:1'
+	implementation 'javax.servlet:jstl'
+	implementation 'javax.annotation:javax.annotation-api'
+	implementation 'mysql:mysql-connector-java:8.0.16'
+	
+	// aws s3 연동 ( 현재 키면 에러남;;; )
+	//implementation 'com.amazonaws:aws-java-sdk:1.11.698'
+	
+	implementation 'com.googlecode.log4jdbc:log4jdbc:1.2'
+	
+	// @EnableIntegration
+	implementation 'org.springframework.integration:spring-integration-event:5.2.0.RELEASE'
+	
+	// @EnableIntegration 사용하기위해 위의 한줄만 추가하면 com.faster..... 에러
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.9'
+	
+	// retrofit 사용을 위해서
+	implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+	implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+	implementation 'com.squareup.retrofit2:converter-jackson:2.6.0'
+	implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+	
+	// webSocket 구현 ( sockjs, stomp 사용 )
+	implementation 'org.springframework.integration:spring-integration-websocket:5.2.0.RELEASE'
+	implementation 'org.springframework.integration:spring-integration-stomp:5.2.0.RELEASE'
+	
+	implementation 'org.webjars:webjars-locator-core'
+	implementation 'org.webjars:sockjs-client:1.1.2'
+	implementation 'org.webjars:stomp-websocket:2.3.3-1'
+	implementation 'org.webjars:bootstrap:4.3.1'
+	implementation 'org.webjars:jquery:3.4.1'
+	
+	
+	compileOnly 'org.projectlombok:lombok'
+	//runtimeOnly 'mysql:mysql-connector-java'
+	providedCompile 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	
+}
+
+test {
+	useJUnitPlatform()
+}

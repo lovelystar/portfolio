@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sumin.portfolio.dao.board">
+	
+	<!-- 글 갯수 -->
+	<select id="boardTotal" resultType="Integer">
+		SELECT
+			COUNT(idx)
+		FROM
+			board
+		WHERE
+			boardable = 1;
+	</select>
+	
+	<!-- 글 목록 -->
+	<select id="getBoard" resultType="com.sumin.portfolio.vo.board.BoardVo">
+		SELECT
+			idx AS idx,
+			boardName AS boardName,
+			boardDetails AS boardDetails,
+			boardViews AS boardViews,
+			uptdate AS uptdate
+		FROM
+			board
+		WHERE
+			boardable = 1
+		ORDER BY
+			idx
+		DESC
+		LIMIT
+			#{pageStart}, #{perPageNum};
+	</select>
+	
+	<!-- 글 목록 ( 파일리스트 ) -->
+	<select id="getBoardUpld" resultType="com.sumin.portfolio.vo.board.BoardVo">
+		SELECT
+			idx AS idx,
+			idxBoard AS idxBoard,
+			fileName AS fileName,
+			originalName AS originalName,
+			randomName AS randomName,
+			fileSize AS fileSize,
+			mimeType AS mimeType,
+			idxUser AS idxUser,
+			idxUserGroup AS idxUserGroup,
+			uptdate AS uptdate
+		FROM
+			contents
+		WHERE
+			idxBoard = #{idxBoard}
+		ORDER BY
+			idx;
+	</select>
+	
+</mapper>

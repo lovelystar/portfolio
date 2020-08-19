@@ -1,0 +1,368 @@
+.boardTitle {
+	text-align: left;
+
+	h2 {
+		position: relative;
+		padding: 50px 20px 16px;
+		font-weight: bold;
+		font-size: 1.875em;
+		color: #ff0073;
+		margin: 0;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 98px;
+			left: 0px;
+			width: 100%;
+			height: 2px;
+			background-color: #ff0073;
+		}
+
+	}
+	
+	.boardAdd {
+		position: absolute;
+		z-index: 5;
+		right: 0;
+		bottom: 15px;
+
+		#AddBtn {
+			position: relative;
+			display: block;
+			width: 60px;
+			height: 60px;
+			color: #ff0073;
+			font-weight: bold;
+			cursor: pointer;
+			border-radius: 50%;
+			background-color: #ffffff;
+			border: 1px solid #ff0073;
+			box-sizing: border-box;
+			transition: .3s ease;
+
+			&:hover {
+				color: #ffffff;
+				background-color: #ff0073;
+			}
+		}
+	}
+
+}
+
+.boardBtn {
+	position: absolute;
+	text-align: left;
+	left: 40px;
+
+	.boardFilter, .boardSearch {
+		display: inline-block;
+		margin-right: 7px;
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		color: #c6c6c6;
+		cursor: pointer;
+		border: 1px solid #c6c6c6;
+		transition: .3s ease;
+
+		&.active {
+			color: #ff0073;
+			border: 1px solid #ff0073;
+		}
+
+		&:hover {
+			color: #ff0073;
+			border: 1px solid #ff0073;
+		}
+	}
+
+	.searchInput {
+		display: inline-block;
+		box-sizing: border-box;
+		border: 1px solid #ff0073;
+		opacity: 0;
+		visibility: hidden;
+		transition: .3s ease;
+
+		input[type=text] {
+			display: inline-block;
+			border: none;
+			width: 0;
+			height: 20px;
+			line-height: 20px;
+			transition: .3s ease;
+		}
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+
+			input[type=text] {
+				width: 140px;
+				padding: 0 10px;
+			}
+		}
+	}
+
+	.filterList {
+		position: absolute;
+		top: 32px;
+		width: 280px;
+		height: 0;
+		z-index: 5;
+		background-color: #ffffff;
+		border: 1px solid #ff0073;
+		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 1px 8px rgba(0, 0, 0, 0.02);
+		box-sizing: border-box;
+		transition: .3s ease;
+		opacity: 0;
+		visibility: hidden;
+		
+		.filterWrap {
+			width: 100%;
+			height: 100%;
+
+			.filterItem {
+				position: relative;
+				display: inline-block;
+				width: 38px;
+				height: 24px;
+				color: #c6c6c6;
+				font-weight: bold;
+				border: 1px solid #c6c6c6;
+				background: #ffffff;
+				margin-left: 5px;
+				margin-top: 5px;
+				padding: 7px 0;
+				cursor: pointer;
+				text-align: center;
+				transition: .3s ease;
+
+				&:hover {
+					color: #ffffff;
+					background: #ff0073;
+					border: 1px solid #ff0073;
+				}
+
+				&.active {
+					color: #ffffff;
+					background: #ff0073;
+					border: 1px solid #ff0073;
+				}
+
+			}
+		}
+
+		&.active {
+			height: 144px;
+			opacity: 1;
+			visibility: visible;
+		}
+
+	}
+
+}
+
+.boardDetail {
+	position: relative;
+	margin-top: 80px;
+
+	.boardWrap {
+		position: relative;
+		padding: 20px 0;
+		border-bottom: 1px solid #ff0073;
+		background: #ffffff;
+		color: #ff0073;
+		font-weight: bold;
+		box-sizing: border-box;
+
+		&:nth-child(1) {
+			border-top: 1px solid #ff0073;
+		}
+
+		.boardImg {
+			position: relative;
+			display: block;
+			float: left;
+			width: 214px;
+			height: 214px;
+			text-align: center;
+			overflow: hidden;
+			box-sizing: border-box;
+
+			.imgWrap {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				transition-property: transition;
+				transition-duration: 1s;
+				transform: translate3d(0px, 0, 0);
+				transition: 1s ease;
+
+				.imgEa {
+					position: relative;
+					width: 100%;
+					height: 100%;
+					flex-shrink: 0;
+					transition-property: transform;
+				}
+
+			}
+
+			.arrowWrap {
+				width: 100%;
+
+				a {
+					position: absolute;
+					cursor: pointer;
+					top: 90px;
+
+					img {
+						opacity: 1;
+					}
+
+					&.disable {
+						img {
+							opacity: .5;
+							cursor: default;
+						}
+					}
+					
+				}
+				
+				#arrowLeft {
+					img {
+						width: 15px;
+						height: 25px;
+					}
+					padding-left: 7px;
+					left: 0;
+				}
+
+				#arrowRight {
+					img {
+						width: 15px;
+						height: 25px;
+					}
+
+					padding-right: 7px;
+					right: 0;
+				}
+
+			}
+
+		}
+
+		.boardTxt {
+			position: relative;
+			display: block;
+			float: left;
+			padding: 0 3%;
+			width: calc(100% - 214px);
+			height: calc(100% - 214px);
+			text-align: left;
+			box-sizing: border-box;
+
+			&::before {
+				content: "";
+				display: inline-block;
+				width: 0;
+				height: 214px;
+				vertical-align: middle;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				height: 0;
+				clear: both;
+				overflow: hidden;
+				visibility: hidden;
+			}
+
+			.txtMiddle {
+				display: inline-block;
+				vertical-align: middle;
+				
+				.txtTitle {
+					line-height: 1.5;
+					font-size: 18px;
+					font-weight: bold;
+					margin-bottom: 0.5em;
+				}
+
+				.txtContent {
+
+					display: -webkit-box;
+					margin-bottom: 1em;
+					color: #222222;
+					font-size: 16px;
+					font-weight: normal;
+					line-height: 1.5;
+					height: 3em;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+
+				}
+
+				.txtLv {
+					font-size: 12px;
+					color: #222222;
+
+					span {
+						position: relative;
+						display: inline-block;
+						padding-left: 20px;
+						margin-right: 10px;
+						cursor: pointer;
+
+						&::after {
+							content: "";
+                            display: inline-block;
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            width: 18px;
+                            height: 18px;
+                            margin-top: -8px;
+                            background-repeat: no-repeat;
+                            background-size: 18px;
+                            vertical-align: top;
+                            opacity: .4;
+                            transition: .3s ease;
+						}
+					}
+
+					.txtLikes {
+						&:hover {
+							&::after {
+								opacity: 1;
+							}
+						}
+						&::after {
+							background-image: url("../img/port_like.svg");
+						}
+					}
+
+					.txtViews {
+						&::after {
+							background-image: url("../img/port_views.svg");
+						}
+					}
+				}
+
+			}
+
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+	}
+}

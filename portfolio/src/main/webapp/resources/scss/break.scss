@@ -1,0 +1,37 @@
+$pc: 1200px;
+$note: 1024px;
+$tablet: 768px;
+$mobile: 480px;
+$minimum: 320px;
+
+$breakpoints: (
+    pc: $pc,
+    note: $note,
+    tablet: $tablet,
+    mobile: $mobile,
+    minimum: $minimum,
+);
+
+@mixin responsive($wide) {
+	@if $wide == pc {
+		@media only screen and (max-width: $pc) {
+			@content;
+		}
+	} @else if $wide == note {
+		@media only screen and (max-width: $note) {
+			@content;
+		}
+	} @else if $wide == tablet {
+		@media only screen and (max-width: $tablet) {
+			@content;
+		}
+	} @else if $wide == mobile {
+		@media only screen and (max-width: $mobile) {
+			@content;
+		}
+	} @else if $wide == minimum {
+		@media only screen and (max-width: $minimum) {
+			@content;
+		}
+	}
+}

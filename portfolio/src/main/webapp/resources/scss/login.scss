@@ -1,0 +1,213 @@
+.login_container {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: #ffffff;
+	position: absolute;
+
+	.login_wrap {
+		position: relative;
+		top: 27%;
+		width: 355px;
+		margin: 0 auto;
+		text-align: center;
+
+		.login_logo {
+			width: 355px;
+			height: 70px;
+			padding-bottom: 35px;
+
+			img {
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+
+			span {
+				color: #ff0073;
+				line-height: 70px;
+				font-size: 60px;
+				font-weight: bold;
+			}
+
+		}
+
+		.login_form {
+			width: 240px;
+			font-size: 12px;
+			font-weight: bold;
+			box-sizing: border-box;
+			border: 1px solid #ffffff;
+			border-bottom: 1px solid #ededed;
+
+			span {
+				text-align: left;
+				display: inline-block;
+				width: 45px;
+				height: 32px;
+				color: #c9c9c9;
+				line-height: 32px;
+				padding-left: 7px;
+			}
+
+			input[type=text] {
+				display: inline-block;
+				width: 175px;
+				height: 32px;
+				line-height: 32px;
+				color: #8f8f8f;
+				border: none;
+			}
+
+			input[type=password] {
+				display: inline-block;
+				width: 175px;
+				height: 32px;
+				line-height: 32px;
+				color: #8f8f8f;
+				border: none;
+			}
+
+			&.active {
+				border: 1px solid #ff0073;
+			}
+
+			&.pw {
+				margin-top: 5px;
+			}
+
+		}
+		
+		.login_option {
+			margin-top: 10px;
+			padding: 0 7px;
+			text-align: left;
+			float: left;
+			font-size: 12px;
+			line-height: 20px;
+			font-weight: bold;
+			color: #c9c9c9;
+			cursor: pointer;
+			letter-spacing: 1.2px;
+
+			input[type=checkbox] {
+				display: none;
+			}
+
+			label {
+				width: 15px;
+				height: 15px;
+				margin-top: 3px;
+				margin-right: 7px;
+				float: left;
+				cursor: pointer;
+				background-color: #ffffff;
+				border: 1px solid #d6d6d6;
+				box-sizing: border-box;
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.07);
+			}
+
+			input[type='checkbox']:checked + label:before {
+				content: url(../img/checked.png);
+				position: absolute;
+				width: 15px;
+				height: 15px;
+				margin-top: -3px;
+				margin-left: 1px;
+			}
+
+		}
+
+		.login_failure {
+			position: absolute;
+			bottom: 7px;
+			width: 100%;
+
+			p {
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+				color: #ff0073;
+				cursor: default;
+				letter-spacing: 1.2px;
+			}
+		}
+
+		.login_btn {
+			position: absolute;
+			top: 105px;
+			right: 0;
+			width: 85px;
+			height: 75px;
+
+			button[type=button], button[type=submit] {
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+				font-weight: bold;
+				background: #ffffff;
+				color: #ff0073;
+				border: 1px solid #ff0073;
+				box-sizing: border-box;
+				transition: .3s ease;
+
+				&:hover {
+					color: #ffffff;
+					background: #ff0073;
+				}
+			}
+
+		}
+
+		.login_up {
+			width: 100%;
+			margin-top: 70px;
+			text-align: left;
+			border-top: 1px solid #ededed;
+
+			.login_sign {
+				width: 210px;
+				padding-top: 20px;
+				padding-left: 25px;
+				float: left;
+				font-size: 12px;
+
+				p {
+					margin: 0;
+					color: #adadad;
+				}
+
+			}
+
+			.login_sign_btn {
+				float: right;
+				width: 85px;
+				height: 30px;
+				padding-top: 20px;
+
+				button[type=button] {
+					width: 100%;
+					height: 100%;
+					cursor: pointer;
+					font-weight: bold;
+					background: #ffffff;
+					color: #ff0073;
+					border: 1px solid #ff0073;
+					box-sizing: border-box;
+					transition: .3s ease;
+
+					&:hover {
+						background: #ff0073;
+						color: #ffffff;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
